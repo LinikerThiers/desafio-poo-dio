@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Mentoria extends Conteudo {
     private LocalDate data;
+    private int cargaHoraria;
 
     @Override
     public double calcularXp() {
@@ -11,6 +12,23 @@ public class Mentoria extends Conteudo {
     }
 
     public Mentoria() {
+    }
+
+    private void adicionarRecompensa() {
+        String nomeRecompensa = "Recompensa da Mentoria " + getTitulo();
+        String descricaoRecompensa = "Recebe uma recompensa por concluir a mentoria " + getTitulo();
+        double xpNecessario = calcularXp();
+        Recompensa recompensa = new Recompensa(nomeRecompensa, descricaoRecompensa, xpNecessario);
+        Recompensa.adicionarRecompensa(recompensa);
+    }
+
+    public int getCargaHoraria() {
+        return cargaHoraria;
+    }
+
+    public void setCargaHoraria(int cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+        adicionarRecompensa();
     }
 
     public LocalDate getData() {
@@ -27,6 +45,7 @@ public class Mentoria extends Conteudo {
                 "titulo='" + getTitulo() + '\'' +
                 ", descricao='" + getDescricao() + '\'' +
                 ", data=" + data +
+                ", cargaHoraria=" + cargaHoraria +
                 '}';
     }
 

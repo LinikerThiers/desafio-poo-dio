@@ -17,6 +17,15 @@ public class Curso extends Conteudo {
 
     public void setCargaHoraria(int cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
+        adicionarRecompensa();
+    }
+
+    private void adicionarRecompensa() {
+        String nomeRecompensa = "Recompensa do " + getTitulo();
+        String descricaoRecompensa = "Recebe uma recompensa por concluir o curso " + getTitulo();
+        double xpNecessario = calcularXp();
+        Recompensa recompensa = new Recompensa(nomeRecompensa, descricaoRecompensa, xpNecessario);
+        Recompensa.adicionarRecompensa(recompensa);
     }
 
     @Override

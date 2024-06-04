@@ -1,6 +1,6 @@
 # Desafio de Projeto: Bootcamp DIO
 
-Este projeto é uma implementação de um sistema de gerenciamento de Bootcamps, Cursos, Mentorias e Desenvolvedores, desenvolvido como parte de um desafio do Bootcamp da DIO.
+Este projeto é uma implementação de um sistema de gerenciamento de Bootcamps, Cursos, Mentorias, Desenvolvedores, desenvolvido como parte de um desafio do Bootcamp da DIO. Com a inclusão de recompensas que serão adquiridas após a conclusão de uma etapa do Bootcamp.
 
 ## Estrutura do Projeto
 
@@ -10,9 +10,10 @@ O projeto está dividido nas seguintes classes principais:
 
 - **Curso**: Representa um curso com título, descrição e carga horária.
 - **Mentoria**: Representa uma mentoria com título, descrição e data.
+- **Recompensa**: Representa uma recompensa com nome, descrição e experiência necessária para obtê-la.
 - **Conteudo**: Classe abstrata que define os métodos comuns entre Curso e Mentoria.
 - **Bootcamp**: Representa um Bootcamp com nome, descrição, data inicial, data final, conjunto de desenvolvedores inscritos e conjunto de conteúdos.
-- **Dev**: Representa um desenvolvedor com nome, conjunto de conteúdos inscritos e conjunto de conteúdos concluídos. Possui métodos para inscrever-se em Bootcamps, progredir e calcular XP total.
+- **Dev**: Representa um desenvolvedor com nome, conjunto de conteúdos inscritos, conjunto de conteúdos concluídos e conjunto de recompensas obtidas. Possui métodos para inscrever-se em Bootcamps, progredir e calcular XP total.
 
 ### Estrutura de Pacotes
 
@@ -45,6 +46,11 @@ O projeto está dividido nas seguintes classes principais:
 - `Mentoria` é uma subclasse de `Conteudo` que inclui um atributo de data.
 - Método `calcularXp` retorna um valor fixo de experiência.
 
+### Recompensa
+
+- `Recompensa` representa uma recompensa com nome, descrição e experiência necessária para obtê-la.
+- Métodos estáticos para adicionar recompensas e obter todas as recompensas disponíveis.
+
 ### Bootcamp
 
 - Inclui um nome, descrição, data inicial, data final, conjunto de desenvolvedores inscritos e conjunto de conteúdos.
@@ -52,7 +58,7 @@ O projeto está dividido nas seguintes classes principais:
 
 ### Dev
 
-- Possui métodos para inscrever-se em Bootcamps, progredir no conteúdo e calcular a XP total.
+- Possui métodos para inscrever-se em Bootcamps, progredir no conteúdo, calcular a XP total e obter recompensas.
 - Métodos para exibir conteúdos inscritos e concluídos.
   
 ## Exemplo de Uso
@@ -90,6 +96,7 @@ public class Main {
         devLiniker.progredir();
         System.out.println("Conteúdos Inscritos Liniker: " + devLiniker.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos Liniker: " + devLiniker.getConteudosConcluidos());
+        System.out.println("Recompensas de Liniker: " + devLiniker.getRecompensas());
         System.out.println("XP: " + devLiniker.calcularTotalXp());
 
         System.out.println(" ");
@@ -103,6 +110,7 @@ public class Main {
         devMaria.progredir();
         System.out.println("Conteúdos Inscritos Maria: " + devMaria.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos Maria: " + devMaria.getConteudosConcluidos());
+        System.out.println("Recompensas de Maria: " + devMaria.getRecompensas());
         System.out.println("XP: " + devMaria.calcularTotalXp());
     }
 }
